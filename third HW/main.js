@@ -1,28 +1,26 @@
 function getPath(el) {
-  const DOMArray = [];
+
+  let DOMArray;
   while(el) {
-    DOMArray.push(el.localName)
+
+    DOMArray = el.localName + (DOMArray ? '>' + DOMArray : '');
 
     if(el.parentElement == null) {
       break;
     }
 
-    el = el.parentElement
+    el = el.parentElement;
   }
-  const DOM = DOMArray.reduceRight((str, value) => str = str + value + ' ', '');
-  console.log(DOM)
+  return DOMArray;
 }
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
 
   const btn = document.querySelector('.navbar__button');
-  const navbar = document.querySelector('.navbar-block')
+  const btnId = document.querySelector('#button');
+  const navbar = document.querySelector('.navbar-block');
 
   console.log(getPath(btn));
   console.log(getPath(navbar));
-
+  console.log(getPath(btnId));
 });
