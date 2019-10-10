@@ -1,17 +1,28 @@
 function getPath(el) {
-  const elementNode = document.querySelectorAll(el);
-  console.log(elementNode)
-  if (elementNode.length > 1) {
-    console.log('bad');
-    elementNode.forEach((el) => {
-      console.log('el doesnt have unique class');
-      console.log(el)
-      console.log(el.dataset.uniqueDataSet = `some unique dataset`)
-    })
-  } else { console.log('el has unique class') }
+  const DOMArray = [];
+  while(el) {
+    DOMArray.push(el.localName)
+
+    if(el.parentElement == null) {
+      break;
+    }
+
+    el = el.parentElement
+  }
+  const DOM = DOMArray.reduceRight((str, value) => str = str + value + ' ', '');
+  console.log(DOM)
 }
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  getPath('.button');
-  getPath('.navbar-block');
+
+  const btn = document.querySelector('.navbar__button');
+  const navbar = document.querySelector('.navbar-block')
+
+  console.log(getPath(btn));
+  console.log(getPath(navbar));
+
 });
