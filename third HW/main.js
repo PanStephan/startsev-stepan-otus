@@ -1,23 +1,20 @@
 function getPath(el) {
-  let DOM;
+  let DOM = [];
   while (el) {
-    DOM = el.localName + (DOM ? '>' + DOM : '');
-    if (el.parentElement == null) {
-      break;
-    }
+    DOM.unshift(el);
     el = el.parentElement;
   }
-  const DOMLength = document.querySelectorAll(`${DOM}`).length;
-  if (DOMLength > 1) {
-    for (let i = 0; i < DOMLength; i++) {
-      console.log(DOM + ':nth-child('+parseInt(i+2)+')');  //nth-child starts from 2
-    }
-  } else { return console.log(DOM) }
+  return console.log(DOM.map((elem) => {
+    let index = Array.prototype.indexOf.call(elem.parentNode.children, elem) + 1;
+    return `${elem.localName}:nth-child(${index})`
+  }).join('>'))
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.querySelector('.navbar__button');
   const navbar = document.querySelector('.navbar-block');
+  const btnId = document.querySelector('#button');
   getPath(btn);
   getPath(navbar);
+  getPath(btnId);
 });
