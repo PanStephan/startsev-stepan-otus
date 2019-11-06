@@ -4,9 +4,13 @@
   "description": "",
   "main": "request.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre-start": "node request.js",
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
+  }
 }
