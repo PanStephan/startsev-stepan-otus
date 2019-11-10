@@ -15,15 +15,11 @@ module.exports = {
     ignored: /node_modules/
   },
   mode: 'development',
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
+  },
   module: {
     rules: [
-      {
-        test: /\.pug$/i,
-        use: {
-          loader: "pug-loader",
-          query: {}, 
-        }
-      },
       {
         test: /\.ts(x?)$/,
         loader: 'babel-loader',
@@ -71,6 +67,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
-    new HtmlWebpackPlugin({ filename: `index.html`, template: 'src/views/index.pug'})
+    new HtmlWebpackPlugin({ filename: `index.html`, template: 'src/views/index.html'})
   ]
 }
