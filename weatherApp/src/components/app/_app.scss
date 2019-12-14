@@ -1,2 +1,6 @@
 @import '../listItem/list-item';
-@import '../likeList/like-list'
+@import '../likeList/like-list';
+
+button:disabled {
+  cursor: not-allowed;
+}
