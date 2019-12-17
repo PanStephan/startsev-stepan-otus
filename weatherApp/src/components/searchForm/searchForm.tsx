@@ -1,8 +1,9 @@
 import * as React from 'react'
-import {getWeather} from '../../actions'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import {useState} from 'react'
 import {connect} from 'react-redux'
+import {weatherReq, weatherLoaded} from '../../actions'
+import {weatherInfo} from '../../services/getInfo'
 
 interface IPropInput {
   inputValue: string,
@@ -10,18 +11,23 @@ interface IPropInput {
 
 interface IPropSearchForm {
   weather: Promise<object>
-  getWeather(props: any): any
+  weatherReq(props: any): any
+  weatherLoaded()
 }
 
 const SearchForm: React.FC<IPropSearchForm> = (props) => {
 
-  const{getWeather} = props
+  const{weatherReq, weatherLoaded} = props
 
   const[inputValue, setInput] = useState<IPropInput | ''>('')
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    getWeather(inputValue)
+    await weatherInfo(inputValue)
+      .then(res => {
+        weatherReq(res)
+        weatherLoaded()
+      })
     setInput('')
   }
 
@@ -53,7 +59,8 @@ const SearchForm: React.FC<IPropSearchForm> = (props) => {
 }
 
 const mapDispatchToProps = {
-  getWeather
+  weatherReq,
+  weatherLoaded
 }
 
 export default connect(null, mapDispatchToProps)(SearchForm)

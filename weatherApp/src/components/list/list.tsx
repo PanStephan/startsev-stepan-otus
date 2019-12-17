@@ -3,6 +3,7 @@ import { ListGroup} from 'reactstrap'
 import {connect} from 'react-redux'
 import ListItem from '../listItem/ListItem'
 
+
 interface IPropList {
   weather: Array<any>  
 }
@@ -10,15 +11,12 @@ interface IPropList {
 const List: React.FC<IPropList> = (props) => {
   const {weather} = props
 
-  console.log(weather)
-
   return (
     <ListGroup>
       <ListItem weatherData={weather}/>
     </ListGroup>  
   )
 }
-
 
 const mapStateToProps = ({weather}) => {
   return {
