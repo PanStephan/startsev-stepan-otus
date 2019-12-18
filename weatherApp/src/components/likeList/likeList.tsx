@@ -10,7 +10,7 @@ export default class LikeList extends React.Component<any> {
     const classNameLike = like ? 'fa fa-heart fa-heart--active' : 'fa fa-heart'
 
     return ( 
-      <Button onClick={() => {onLike(id)}}>
+      <Button onClick={onLike.bind(null, id)}>
         <i className={classNameLike}></i>
       </Button>
     )
