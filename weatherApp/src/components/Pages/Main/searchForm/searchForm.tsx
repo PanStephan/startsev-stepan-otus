@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import {useState} from 'react'
 import {connect} from 'react-redux'
-import {weatherReq, weatherLoaded} from '../../actions'
-import {weatherInfo} from '../../services/getInfo'
+import {weatherReq, weatherLoaded} from '../../../../actions'
+import {weatherInfo} from '../../../../services/getInfo'
 
 interface PropInput {
   inputValue: string;

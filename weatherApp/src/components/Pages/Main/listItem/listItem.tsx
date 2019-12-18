@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {ListGroupItem } from 'reactstrap'
+import {ListGroupItem} from 'reactstrap'
 import EmptyList from './EmptyList'
 import LikeList from '../likeList/LikeList'
-import Loader from '../Loader/Loader'
-import {toggleLike} from '../../actions'
+import Loader from '../../../Loader/Loader'
+import {toggleLike} from '../../../../actions'
 import {connect} from 'react-redux'
 
 interface PropListItem {
