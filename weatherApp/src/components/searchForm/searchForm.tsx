@@ -5,21 +5,21 @@ import {connect} from 'react-redux'
 import {weatherReq, weatherLoaded} from '../../actions'
 import {weatherInfo} from '../../services/getInfo'
 
-interface IPropInput {
-  inputValue: string,
+interface PropInput {
+  inputValue: string;
 }
 
-interface IPropSearchForm {
-  weather: Promise<object>
-  weatherReq(props: any): any
-  weatherLoaded()
+interface PropSearchForm {
+  weather: Promise<object>;
+  weatherReq(res: any): any;
+  weatherLoaded(): void;
 }
 
-const SearchForm: React.FC<IPropSearchForm> = (props) => {
+const SearchForm: React.FC<PropSearchForm> = (props) => {
 
   const{weatherReq, weatherLoaded} = props
 
-  const[inputValue, setInput] = useState<IPropInput | ''>('')
+  const[inputValue, setInput] = useState<PropInput | ''>('')
 
   const onSubmit = async (e) => {
     e.preventDefault()

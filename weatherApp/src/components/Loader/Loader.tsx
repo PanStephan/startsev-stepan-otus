@@ -1,11 +1,11 @@
 import * as React from 'react'
 import './loader.sass'
 
-interface IPropLoader {
-  className?: string
+interface PropLoader {
+  className?: string;
 }
 
-const Loader = (props: IPropLoader): JSX.Element => {
+const Loader = (props: PropLoader): JSX.Element => {
   const cls = ['loader']
   if('center' === props.className) cls.push('loader-center')
   return (

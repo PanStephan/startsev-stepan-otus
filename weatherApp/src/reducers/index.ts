@@ -1,13 +1,20 @@
 import createId from '../services/createId'
 
-interface IPropState {
-  weather: []
+interface PropState {
+  weather: Array<any>;
 }
 
-const initialState:IPropState = {
+interface PropWeatherEl {
+  el?: Array<any>;
+  id?: string;
+  like?: boolean;
+  loaded?: boolean;
+}
+
+const initialState: PropState = {
   weather: [],
+  
 }
-
 const reducer = (state = initialState, action) => {
   const {payload, type} = action
   switch(type) {
@@ -40,14 +47,14 @@ const reducer = (state = initialState, action) => {
         ]
       }
     case 'TOGGLE_LIKE': 
-    const likedEl = state.weather.findIndex((el: Array) => el.id === payload)
+    const likedEl = state.weather.findIndex((el: PropWeatherEl) => el.id === payload)
       return {
         ...state,
         weather: [
-          ...state.weather.map((el: Array) => {
+          ...state.weather.map((el: PropWeatherEl) => {
             if(el.id === payload) return {
               ...el,
-              like: !state.weather[likedEl].like
+              like: !state.weather[likedEl]!.like
             }
             else return {
               ...el

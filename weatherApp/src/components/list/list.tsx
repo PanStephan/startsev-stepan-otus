@@ -4,11 +4,11 @@ import {connect} from 'react-redux'
 import ListItem from '../listItem/ListItem'
 
 
-interface IPropList {
-  weather: Array<any>  
+interface PropList {
+  weather: Array<any>;  
 }
 
-const List: React.FC<IPropList> = (props) => {
+const List: React.FC<PropList> = (props) => {
   const {weather} = props
 
   return (

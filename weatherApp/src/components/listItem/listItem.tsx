@@ -6,12 +6,12 @@ import Loader from '../Loader/Loader'
 import {toggleLike} from '../../actions'
 import {connect} from 'react-redux'
 
-interface IPropListItem {
-  weatherData: Array<any>
-  toggleLike(id: string)
+interface PropListItem {
+  weatherData: Array<any>;
+  toggleLike(id: string);
 }
 
-const ListItem: React.FC<IPropListItem> = (props) => {
+const ListItem: React.FC<PropListItem> = (props) => {
 
   const{weatherData, toggleLike} = props
 
