@@ -6,9 +6,9 @@ import {getSeparateItem} from '../../../../actions'
 import {connect} from 'react-redux'
 
 interface PropHistoryList {
-  weather: Array<any>
-  history: Array<string>
-  getSeparateItem(id: string): void
+  weather: Array<any>;
+  history: Array<string>;
+  getSeparateItem(id: string): void;
 }
 
 const HistoryList: React.FC<PropHistoryList> = ({weather, history, getSeparateItem}) => {

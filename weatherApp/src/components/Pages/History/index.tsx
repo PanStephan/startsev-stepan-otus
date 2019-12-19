@@ -5,7 +5,7 @@ import HistoryItem from './HistoryList/HistoryItem/HistoryItem'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 interface PropList {
-  weather: Array<any>
+  weather: Array<any>;
 }
 
 const History: React.FC<PropList> = (props) => {

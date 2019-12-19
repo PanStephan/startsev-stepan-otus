@@ -3,11 +3,11 @@ import ErrorListReq from '../../../../ErrorListReq/ErrorListReq'
 import {connect} from 'react-redux'
 
 interface PropHistoryItem {
-  weather: Array<any>
-  itemId: string
+  weather: Array<any>;
+  itemId: string;
 }
 
-const HistoryItem:React.FC<PropHistoryItem> = ({weather, itemId}) => {
+const HistoryItem: React.FC<PropHistoryItem> = ({weather, itemId}) => {
   const item = weather.filter(el => el.id === itemId)
 
   return (
