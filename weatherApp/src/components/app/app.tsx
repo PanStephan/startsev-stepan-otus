@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Header/>
       <Switch>
         <Route path='/' exact component={Main}/>
-        <Route path='/history' component={History}/>
+        <Route path='/history/' component={History}/>
         <Route path='/404' component={() => <NotFound></NotFound>} />
         <Redirect from='*' to='/404' />
       </Switch>

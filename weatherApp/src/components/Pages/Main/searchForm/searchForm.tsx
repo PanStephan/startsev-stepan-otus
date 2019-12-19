@@ -15,6 +15,17 @@ interface PropSearchForm {
   weatherLoaded(): void;
 }
 
+const addToLocalStorage = (name) => {
+  if (localStorage) {
+    let city
+    if (!localStorage['city']) city = []
+    else city = JSON.parse(localStorage['city'])
+    if (!(city instanceof Array)) city = []
+    city.push(name)
+    localStorage.setItem('city', JSON.stringify(city))
+  } 
+}
+
 const SearchForm: React.FC<PropSearchForm> = (props) => {
 
   const{weatherReq, weatherLoaded} = props
@@ -26,6 +37,7 @@ const SearchForm: React.FC<PropSearchForm> = (props) => {
     await weatherInfo(inputValue)
       .then(res => {
         weatherReq(res)
+        addToLocalStorage(res.location.name)
         weatherLoaded()
       })
       .catch(err => console.log(err))

@@ -5,6 +5,7 @@ import LikeList from '../likeList/LikeList'
 import Loader from '../../../Loader/Loader'
 import {toggleLike} from '../../../../actions'
 import {connect} from 'react-redux'
+import ErrorListReq from '../../../ErrorListReq/ErrorListReq'
 
 interface PropListItem {
   weatherData: Array<any>;
@@ -28,7 +29,7 @@ const ListItem: React.FC<PropListItem> = (props) => {
 
 const ListItemMarkup = ({weatherData, onLike}): JSX.Element => {
 
-  return weatherData.map((el) => {  
+  return weatherData.map((el) => {
     if(!el.success && el.success !== undefined) return <ErrorListReq key={el.id}/>
       else {
         return (
@@ -50,8 +51,4 @@ const mapDispatchToProps = {
   toggleLike  
 }
     
-const ErrorListReq = () => (
-  <p>write a correct city</p>
-)
-
 export default connect(null, mapDispatchToProps)(ListItem)

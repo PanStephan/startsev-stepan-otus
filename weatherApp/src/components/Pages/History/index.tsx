@@ -1,31 +1,33 @@
 import * as React from 'react'
-import { ListGroup, ListGroupItem} from 'reactstrap'
 import {connect} from 'react-redux'
-
+import HistoryList from './HistoryList/HistoryList'
+import HistoryItem from './HistoryList/HistoryItem/HistoryItem'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 interface PropList {
-  weather: Array<any>;  
+  weather: Array<any>
 }
 
 const History: React.FC<PropList> = (props) => {
   const {weather} = props
 
   return (
-    <ListGroup>
-      {weather.length === 0 ? <p>Write a first city</p> :
-        weather.map(el => {
-          return (
-            <ListGroupItem key={el.id}>
-              {el.location.name}
-            </ListGroupItem> 
-          )       
-        })
-      }
-    </ListGroup>  
+    <Router>
+      <Switch>
+        <Route path='/history/' exact component={() => {
+          return <HistoryList weather={weather}/>
+        }}/>
+        <Route path='/history/:id' exact render = {
+          () => { 
+            return <HistoryItem weather={weather}/>
+          }
+        }/>
+      </Switch>
+    </Router>  
   )
 }
 
-const mapStateToProps = ({weather}) => {
+const mapStateToProps = ({weather, itemId}) => {
   return {
     weather
   }

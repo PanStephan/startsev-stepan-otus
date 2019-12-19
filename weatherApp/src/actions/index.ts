@@ -20,8 +20,16 @@ const toggleLike = (id) => {
   }
 }
 
+const getSeparateItem = (id) => {
+  return {
+    type: 'GET_SEPERATE_ITEM',
+    payload: id
+  }
+}
+
 export {
   weatherReq,
   weatherLoaded,
-  toggleLike
+  toggleLike,
+  getSeparateItem
 }

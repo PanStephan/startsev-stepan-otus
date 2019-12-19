@@ -62,11 +62,17 @@ const reducer = (state = initialState, action) => {
           }),          
         ]
       }
+    case 'GET_SEPERATE_ITEM':
+      return {
+        ...state,
+        itemId: payload
+      }
     default:
       return {
         ...state
       }  
   }
 }
+
 
 export default reducer

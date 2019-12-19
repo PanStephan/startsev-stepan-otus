@@ -8,7 +8,7 @@ const Header = () => (
       <Col xs="3"><NavLink to='/'>Main</NavLink></Col>
     </NavItem>
     <NavItem>
-      <Col xs="3"><NavLink to='/history'>History</NavLink></Col>
+      <Col xs="3"><NavLink to='/history/'>History</NavLink></Col>
     </NavItem>
   </Nav>
 )
