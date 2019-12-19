@@ -10,8 +10,6 @@ interface PropList {
 const History: React.FC<PropList> = (props) => {
   const {weather} = props
 
-  console.log(weather.length)
-
   return (
     <ListGroup>
       {weather.length === 0 ? <p>Write a first city</p> :

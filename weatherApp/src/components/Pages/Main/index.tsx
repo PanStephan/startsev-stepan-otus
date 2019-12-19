@@ -4,7 +4,7 @@ import SearchForm from './SearchForm/searchForm'
 
 const Main: React.FC = () => (
   <>
-    <SearchForm/>
+    <SearchForm/> 
     <List/>
   </>
 )

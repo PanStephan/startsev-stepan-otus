@@ -28,6 +28,7 @@ const SearchForm: React.FC<PropSearchForm> = (props) => {
         weatherReq(res)
         weatherLoaded()
       })
+      .catch(err => console.log(err))
     setInput('')
   }
 

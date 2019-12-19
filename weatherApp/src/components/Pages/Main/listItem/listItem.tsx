@@ -28,18 +28,21 @@ const ListItem: React.FC<PropListItem> = (props) => {
 
 const ListItemMarkup = ({weatherData, onLike}): JSX.Element => {
 
-  return weatherData.map((el) => {
-    return (
-      el.loaded ? 
-      <ListGroupItem key={el.id}>
-        <p>{el.location.name}</p>
-        <img src={el.current.weather_icons} alt=""/>
-        <p>{el.current.temperature}</p>
-        <LikeList id={el.id} like={el.like} onLike={onLike}/>
-      </ListGroupItem>  
-      :
-      <Loader key={el.id}/>
-    )
+  return weatherData.map((el) => {  
+    if(!el.success && el.success !== undefined) return <ErrorListReq key={el.id}/>
+      else {
+        return (
+          el.loaded ? 
+          <ListGroupItem key={el.id}>
+            <p>{el.location.name}</p>
+            <img src={el.current.weather_icons} alt=""/>
+            <p>{el.current.temperature}</p>
+            <LikeList id={el.id} like={el.like} onLike={onLike}/>
+          </ListGroupItem>  
+          :
+          <Loader key={el.id}/>
+        )
+      }
   })
 }  
 
@@ -47,4 +50,8 @@ const mapDispatchToProps = {
   toggleLike  
 }
     
+const ErrorListReq = () => (
+  <p>write a correct city</p>
+)
+
 export default connect(null, mapDispatchToProps)(ListItem)
