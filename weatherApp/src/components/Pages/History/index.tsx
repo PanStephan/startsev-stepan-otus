@@ -27,9 +27,9 @@ const History: React.FC<PropList> = (props) => {
   )
 }
 
-const mapStateToProps = ({weather, itemId}) => {
+const mapStateToProps = ({weather}) => {
   return {
-    weather
+    weather: weather.filter(el => el.success === undefined)
   }
 }
 

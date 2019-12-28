@@ -48,8 +48,7 @@ const SearchForm: React.FC<PropSearchForm> = (props) => {
     setInput(e.target.value)
   }
 
-  let disabled
-  inputValue === '' ? disabled = true : disabled = false
+  let disabled = inputValue === ''
 
   return (
     <Form

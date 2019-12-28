@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ErrorListReq from '../../../../ErrorListReq/ErrorListReq'
 import {connect} from 'react-redux'
 
 interface PropHistoryItem {
@@ -14,7 +13,6 @@ const HistoryItem: React.FC<PropHistoryItem> = ({weather, itemId}) => {
     <>
       {item.length === 0 ? <p>Write a first city</p> :
         item.map(el => {
-          if(!el.success && el.success !== undefined) return <ErrorListReq key={el.id}/>
           return (
             <div key={el.id}>
               <div>

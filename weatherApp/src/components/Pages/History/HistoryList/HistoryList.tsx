@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ListGroup, ListGroupItem} from 'reactstrap'
 import {withRouter} from 'react-router-dom'
-import ErrorListReq from '../../../ErrorListReq/ErrorListReq'
 import {getSeparateItem} from '../../../../actions'
 import {connect} from 'react-redux'
 
@@ -27,7 +26,6 @@ const HistoryList: React.FC<PropHistoryList> = ({weather, history, getSeparateIt
         <>
           <span>you watching now</span>
             {weather.map(el => {
-              if(!el.success && el.success !== undefined) return <ErrorListReq key={el.id}/>
               return (
                 <ListGroupItem key={el.id} onClick={onClick.bind(this, el.id)}>
                   {el.location.name}
