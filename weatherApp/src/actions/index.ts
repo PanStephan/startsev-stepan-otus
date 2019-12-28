@@ -1,24 +1,18 @@
-const weatherLoaded = () => {
-  return {
-    type: 'WEATHER_LOADED',
-  }
-}
+const weatherLoaded = () => ({
+  type: 'WEATHER_LOADED',
+})
 
-const weatherReq = (res) => {
-  return {
-    type: 'WEATHER_REQ',
-    payload: {
-      res
-    }
+const weatherReq = (res) => ({
+  type: 'WEATHER_REQ',
+  payload: {
+    res
   }
-}
+})
 
-const toggleLike = (id) => {
-  return {
-    type: 'TOGGLE_LIKE',
-    payload: id
-  }
-}
+const toggleLike = (id) => ({
+  type: 'TOGGLE_LIKE',
+  payload: id
+})
 
 export {
   weatherReq,
