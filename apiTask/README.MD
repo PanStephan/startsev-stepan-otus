@@ -1,0 +1,1 @@
+RSS EXMAPLE https://www.feedforall.com/blog-feed.xml
