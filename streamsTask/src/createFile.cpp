@@ -4,17 +4,18 @@
 #include <stdint.h>
 #include <time.h>
  
-char SYMBOLS[] = "0123456789 ";
-static const int FILESIZE = 100000000; // 100mb
-#define RANGE sizeof(SYMBOLS) * sizeof(char)
+char SYMBOLS[] = "0123456789  ";
+// 100000000
+static const int FILESIZE = 100000000 ; // 100mb
 #define MIN(a, b) ((a) < (b) ? a : b)
 
 unsigned char* generate_buffer(unsigned char* dest, unsigned len)
 {
   unsigned char* ptr = dest;
+
   while (len--) 
   {
-    *ptr++ = SYMBOLS[rand() % RANGE];
+    *ptr++ = SYMBOLS[rand() % 11];
   }
 
   return dest;
@@ -23,7 +24,7 @@ unsigned char* generate_buffer(unsigned char* dest, unsigned len)
 bool create_file(const char* filename, int64_t filesize, unsigned buffer_size)
 {
   if (!buffer_size || filesize <= 0) return false;
-  FILE* fout = fopen(filename, "w+,ccs=UTF-8");
+  FILE* fout = fopen(filename, "w+");
   if (!buffer_size || !fout) return false;
  
   unsigned char* buffer = (unsigned char*)malloc(buffer_size * sizeof(char));
@@ -45,6 +46,6 @@ bool create_file(const char* filename, int64_t filesize, unsigned buffer_size)
 int main(int argc, char** argv)
 {
   srand(time(0));
-  create_file("file.txt", FILESIZE, 8192);
+  create_file("./src/files/file.txt", FILESIZE, 8192);
   return 0;
 }
