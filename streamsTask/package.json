@@ -1,0 +1,14 @@
+{
+  "name": "streamstask",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "exec": "gcc -o exec ./src/createFile.cpp",
+    "node": "node --max-old-space-size=50 ./src/main.js",
+    "start": "npm-run-all -s exec node"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {}
+}
